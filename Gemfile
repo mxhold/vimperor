@@ -1,5 +1,6 @@
 source 'https://rubygems.org'
 
+ruby "2.1.3"
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.0.beta1'
@@ -24,7 +25,7 @@ gem 'jquery-rails'
 gem 'rails-html-sanitizer', '~> 1.0'
 
 # Use Unicorn as the app server
-# gem 'unicorn'
+gem 'unicorn'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
