@@ -4,6 +4,6 @@ feature 'Landing page' do
   scenario 'User visits the landing page' do
     visit '/'
 
-    expect(page).to have_text('Vimpire')
+    expect(page).to have_text('Vimperor')
   end
 end
