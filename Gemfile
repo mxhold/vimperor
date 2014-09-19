@@ -46,3 +46,6 @@ group :test do
   gem 'capybara'
 end
 
+group :production do
+  gem 'rails_12factor'
+end
