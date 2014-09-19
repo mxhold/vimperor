@@ -1,6 +1,4 @@
 language: ruby
-before_install:
-  - echo "2.1.2" > .ruby-version
 before_script:
   - cp config/database.yml.travis config/database.yml
   - psql -c 'create database travis_ci_test;' -U postgres
