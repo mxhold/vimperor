@@ -27,14 +27,14 @@ gem 'rails-html-sanitizer', '~> 1.0'
 gem 'bootstrap-sass', '~> 3.2.0'
 
 group :development do
-  # Call 'debugger' anywhere in the code to stop execution and get a debugger console
-  gem 'byebug'
-
   # Access an IRB console on exceptions page and /console in development
   gem 'web-console', '~> 2.0.0.beta2'
 end
 
 group :development, :test do
+  # Call 'debugger' anywhere in the code to stop execution and get a debugger console
+  gem 'byebug'
+
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
 
@@ -43,6 +43,7 @@ end
 
 group :test do
   gem 'capybara'
+  gem 'shoulda-matchers'
 end
 
 group :production do

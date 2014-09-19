@@ -5,4 +5,22 @@
       An intelligent vimrc generator
     </p>
   </div>
+  <div class="option-form">
+    <%= form_for(@option_set) do |f| %>
+      <label>Vi-compatibility</label>
+      <div class="radio">
+        <%= f.label :compatible, value: true do %>
+          <%= f.radio_button :compatible, true, checked: true %>
+          On (default)
+        <% end %>
+      </div>
+      <div class="radio">
+        <%= f.label :compatible, value: false do %>
+          <%= f.radio_button :compatible, false %>
+          Off (recommended)
+        <% end %>
+      </div>
+      <%= f.submit "Generate", class: 'btn btn-default' %>
+    <% end %>
+  </div>
 </div>
