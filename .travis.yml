@@ -1,7 +1,6 @@
 language: ruby
-rvm:
-  - 2.1.2
 before_script:
+  - echo "2.1.2" > .ruby-version
   - cp config/database.yml.travis config/database.yml
   - psql -c 'create database travis_ci_test;' -U postgres
 bundler_args: --without development production
