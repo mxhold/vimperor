@@ -24,18 +24,17 @@ gem 'jquery-rails'
 # Use Rails Html Sanitizer for HTML sanitization
 gem 'rails-html-sanitizer', '~> 1.0'
 
-# Use Unicorn as the app server
-gem 'unicorn'
-
 gem 'bootstrap-sass', '~> 3.2.0'
 
-group :development, :test do
+group :development do
   # Call 'debugger' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
 
   # Access an IRB console on exceptions page and /console in development
   gem 'web-console', '~> 2.0.0.beta2'
+end
 
+group :development, :test do
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
 
@@ -48,4 +47,5 @@ end
 
 group :production do
   gem 'rails_12factor'
+  gem 'unicorn'
 end
