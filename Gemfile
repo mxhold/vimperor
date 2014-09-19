@@ -27,8 +27,7 @@ gem 'rails-html-sanitizer', '~> 1.0'
 # Use Unicorn as the app server
 gem 'unicorn'
 
-# Use Capistrano for deployment
-# gem 'capistrano-rails', group: :development
+gem 'bootstrap-sass', '~> 3.2.0'
 
 group :development, :test do
   # Call 'debugger' anywhere in the code to stop execution and get a debugger console
