@@ -7,6 +7,6 @@ feature 'vimrc generation' do
     click_on('Generate')
 
     expect(page.response_headers["Content-Disposition"]).to include "attachment"
-    expect(page.source).to eql "set compatible\n"
+    expect(page.source).to eql "set nocompatible\n"
   end
 end
