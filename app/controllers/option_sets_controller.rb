@@ -9,7 +9,7 @@ class OptionSetsController < ApplicationController
       file = Tempfile.new('vimrc')
       file.write(@option_set.generate_file)
       file.flush
-      send_file file, filename: 'vimrc', status: :created
+      send_file file, filename: 'vimrc', type: :text, status: :created
     else
       flash[:error] = "vimrc file could not be generated."
       render :new, status: :unprocessable_entity
