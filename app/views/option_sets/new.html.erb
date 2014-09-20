@@ -1,26 +1,42 @@
-<div class="container-fluid">
-  <div class="intro">
+<div class="main-view">
+  <div class="intro row">
     <h1>Vimperor</h1>
     <p class="lead">
       An intelligent vimrc generator
     </p>
   </div>
   <div class="option-form">
-    <%= form_for(@option_set) do |f| %>
-      <label>Vi-compatibility</label>
-      <div class="radio">
-        <%= f.label :compatible, value: true do %>
-          <%= f.radio_button :compatible, true, checked: true %>
-          On (default)
-        <% end %>
+    <%= form_for(@option_set, html: { class: "" }) do |f| %>
+      <div class="options panel panel-default">
+        <div class="option">
+          <label class="control-label">
+            Vi-compatibility
+          </label>
+            <a href="http://vimdoc.sourceforge.net/htmldoc/options.html#'compatible'" class="doc-link" target="_blank">
+              see documentation
+            </a>
+          <span class="help-block">
+            Adds backwards-compatibility with the Vi editor by turning many Vim features off.
+          </span>
+          <div class="choices">
+            <div class="radio">
+              <%= f.label :compatible, value: true do %>
+                <%= f.radio_button :compatible, true, checked: true %>
+                On (default)
+              <% end %>
+              <div class="radio">
+                <%= f.label :compatible, value: false do %>
+                  <%= f.radio_button :compatible, false %>
+                  Off (recommended)
+                <% end %>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="submit">
+          <%= f.submit "Generate", class: 'btn btn-default' %>
+        </div>
       </div>
-      <div class="radio">
-        <%= f.label :compatible, value: false do %>
-          <%= f.radio_button :compatible, false %>
-          Off (recommended)
-        <% end %>
-      </div>
-      <%= f.submit "Generate", class: 'btn btn-default' %>
     <% end %>
   </div>
 </div>

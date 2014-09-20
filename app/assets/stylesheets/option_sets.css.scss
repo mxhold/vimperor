@@ -2,15 +2,52 @@ body {
   background-color: #333;
 }
 
+.main-view {
+  margin: 0 80px;
+  width: auto;
+}
+
 .intro {
-  padding: 40px;
+  margin-top: 60px;
   text-align: center;
   background-color: #333;
   color: #fff;
 }
 
-.option-form {
-  text-align: center;
-  color: #fff;
+.options {
+  padding: 30px;
+  min-width: 400px;
+  max-width: 800px;
+  display: table;
+  margin: 40px auto;
 }
 
+.option {
+  display: table;
+  margin: 0 auto;
+}
+
+.choices {
+  margin: 15px;
+}
+
+.submit {
+  margin-top: 20px;
+  text-align: center;
+}
+
+.option:hover .doc-link {
+  display: inline;
+}
+
+.doc-link {
+  float: right;
+  text-decoration: none;
+  color: #969696;
+  display: none;
+  font-size: 14px;
+  &:hover {
+    color: #737373;
+    text-decoration: none;
+  }
+}
