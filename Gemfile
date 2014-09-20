@@ -25,6 +25,7 @@ gem 'jquery-rails'
 gem 'rails-html-sanitizer', '~> 1.0'
 
 gem 'bootstrap-sass', '~> 3.2.0'
+gem 'font-awesome-sass', '~> 4.2.0'
 
 group :development do
   # Access an IRB console on exceptions page and /console in development

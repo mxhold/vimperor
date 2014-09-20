@@ -8,7 +8,7 @@
   <div class="option-form">
     <%= form_for(@option_set, html: { class: "" }) do |f| %>
       <div class="options panel panel-default">
-        <div class="option">
+        <div class="option panel-body">
           <label class="control-label">
             Vi-compatibility
           </label>
@@ -16,7 +16,7 @@
               see documentation
             </a>
           <span class="help-block">
-            Adds backwards-compatibility with the Vi editor by turning off many Vim features.
+            Adds backwards-compatibility with the Vi editor by turning off many Vim features
           </span>
           <div class="choices">
             <div class="radio">
@@ -34,7 +34,22 @@
           </div>
         </div>
         <div class="submit">
-          <%= f.submit "Generate", class: 'btn btn-default' %>
+          <button class="btn btn-default">
+            <%= icon('cog', '', class: 'fa-spin') %> Generate
+          </button>
+        </div>
+        <div class="panel-footer">
+          <div class="well output">
+            <samp>
+              set nocompatible
+            </samp>
+          </div>
+          <div class="download">
+            <button class="btn btn-default"><%= icon('clipboard') %> Copy</button>
+            <button class="btn btn-success">
+              <%= icon('download') %> Download
+            </button>
+          </div>
         </div>
       </div>
     <% end %>
