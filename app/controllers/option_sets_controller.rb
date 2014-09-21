@@ -6,19 +6,20 @@ class OptionSetsController < ApplicationController
   def create
     @option_set = OptionSet.new(option_set_params)
     if @option_set.save
-      file = Tempfile.new('vimrc')
-      file.write(@option_set.generate_file)
-      file.flush
-      send_file file, filename: 'vimrc', type: :text, status: :created
+      render :create, status: :created, location: option_sets_path
     else
-      flash[:error] = "vimrc file could not be generated."
-      render :new, status: :unprocessable_entity
+      render :create, status: :unprocessable_entity
     end
+  end
+
+  def download
+    @option_set = OptionSet.find(params[:id])
+    send_data(render_to_string(@option_set), filename: 'vimrc.txt', type: 'text/plain')
   end
 
   private
 
   def option_set_params
-    params.require(:option_set).permit(:compatible)
+    params.fetch(:option_set, {}).permit(:compatible)
   end
 end

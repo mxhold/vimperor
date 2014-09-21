@@ -5,53 +5,50 @@
       An intelligent vimrc generator
     </p>
   </div>
-  <div class="option-form">
-    <%= form_for(@option_set, html: { class: "" }) do |f| %>
-      <div class="options panel panel-default">
-        <div class="option panel-body">
-          <label class="control-label">
-            Vi-compatibility
-          </label>
-            <a href="http://vimdoc.sourceforge.net/htmldoc/options.html#'compatible'" class="doc-link" target="_blank">
-              see documentation
-            </a>
-          <span class="help-block">
-            Adds backwards-compatibility with the Vi editor by turning off many Vim features
-          </span>
-          <div class="choices">
+  <%= form_for(@option_set, remote: true) do |f| %>
+    <div class="options panel panel-default">
+      <div class="option panel-body">
+        <label class="control-label">
+          Vi-compatibility
+        </label>
+        <a href="http://vimdoc.sourceforge.net/htmldoc/options.html#'compatible'" class="doc-link" target="_blank">
+          see documentation
+        </a>
+        <span class="help-block">
+          Adds backwards-compatibility with the Vi editor by turning off many Vim features
+        </span>
+        <div class="choices">
+          <div class="radio">
+            <%= f.label :compatible, value: true do %>
+              <%= f.radio_button :compatible, true %>
+              On
+            <% end %>
             <div class="radio">
-              <%= f.label :compatible, value: true do %>
-                <%= f.radio_button :compatible, true %>
-                On
+              <%= f.label :compatible, value: false do %>
+                <%= f.radio_button :compatible, false, checked: true %>
+                Off (recommended)
               <% end %>
-              <div class="radio">
-                <%= f.label :compatible, value: false do %>
-                  <%= f.radio_button :compatible, false, checked: true %>
-                  Off (recommended)
-                <% end %>
-              </div>
             </div>
           </div>
         </div>
-        <div class="submit">
-          <button class="btn btn-default">
-            <%= icon('cog', '', class: 'fa-spin') %> Generate
+      </div>
+      <div class="submit">
+        <button type="submit" class="btn btn-default">
+          <%= icon('cog') %> Generate
+        </button>
+      </div>
+      <div class="panel-footer output-panel" style="display: none;">
+        <div class="well output">
+          <samp>
+          </samp>
+        </div>
+        <div class="download">
+          <button type="button" class="btn btn-default"><%= icon('clipboard') %> Copy</button>
+          <button type="button" class="btn btn-success">
+            <%= icon('download') %> Download
           </button>
         </div>
-        <div class="panel-footer">
-          <div class="well output">
-            <samp>
-              set nocompatible
-            </samp>
-          </div>
-          <div class="download">
-            <button class="btn btn-default"><%= icon('clipboard') %> Copy</button>
-            <button class="btn btn-success">
-              <%= icon('download') %> Download
-            </button>
-          </div>
-        </div>
       </div>
-    <% end %>
-  </div>
+    </div>
+  <% end %>
 </div>

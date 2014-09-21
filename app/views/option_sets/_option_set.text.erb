@@ -1,0 +1,9 @@
+<% if @option_set.errors.any? %>
+  Whoops! An error occurred.
+<% else %>
+  <% if @option_set.compatible? %>
+    set compatible
+  <% else %>
+    set nocompatible
+  <% end %>
+<% end %>

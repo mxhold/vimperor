@@ -17,7 +17,9 @@ ActiveRecord::Schema.define(version: 20140919183644) do
   enable_extension "plpgsql"
 
   create_table "option_sets", force: true do |t|
-    t.boolean "compatible", null: false
+    t.boolean  "compatible", null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
 end
