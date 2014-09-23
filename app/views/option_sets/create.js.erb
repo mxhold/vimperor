@@ -1,3 +1,4 @@
+history.pushState({}, 'OptionSet<%= @option_set.id %>', '<%= url_for @option_set %>')
 $('.output samp').html("<%=j render 'option_set.text.erb' %>")
-$('.output-panel').show()
-$('.submit i').toggleClass('fa-spin')
+$('.output-panel').show('fast')
+$('.submit i').removeClass('fa-spin')

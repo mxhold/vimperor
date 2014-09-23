@@ -1,3 +1,3 @@
 $ ->
-  $('#new_option_set').submit ->
-    $('.submit i').toggleClass('fa-spin')
+  $('body').on 'submit', '.option_set_form', ->
+    $('.submit i').addClass('fa-spin')

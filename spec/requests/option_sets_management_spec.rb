@@ -20,4 +20,12 @@ describe "OptionSet management" do
       expect(response.body).to include "error occurred"
     end
   end
+  describe 'show' do
+    it 'renders the option set' do
+      option_set = create(:option_set)
+      get "/v/#{option_set.to_param}"
+
+      expect(response.status).to eql 200
+    end
+  end
 end

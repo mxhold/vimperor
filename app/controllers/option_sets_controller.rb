@@ -12,6 +12,11 @@ class OptionSetsController < ApplicationController
     end
   end
 
+  def show
+    @new_option_set = OptionSet.new
+    @option_set = OptionSet.find(params[:id])
+  end
+
   def download
     @option_set = OptionSet.find(params[:id])
     send_data(render_to_string(@option_set), filename: 'vimrc.txt', type: 'text/plain')

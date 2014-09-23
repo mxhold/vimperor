@@ -7,8 +7,14 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-
-<%= yield %>
-
+  <div class="main-view">
+    <div class="intro row">
+      <h1>Vimperor</h1>
+      <p class="lead">
+        A vimrc generator for busy/lazy people
+      </p>
+    </div>
+    <%= yield %>
+  </div>
 </body>
 </html>

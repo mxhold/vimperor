@@ -21,4 +21,16 @@ feature 'vimrc generation' do
 
     expect(page).to have_content('set compatible')
   end
+
+  scenario 'User generates vimrc and then visits the show page', js: true do
+    visit '/'
+    click_on('Generate')
+
+    expect(page).to have_content('set nocompatible')
+    expect(page.current_path).to match(/\/v\/\d+/)
+
+    visit page.current_path
+
+    expect(page).to have_content('set nocompatible')
+  end
 end
