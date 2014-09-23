@@ -8,13 +8,4 @@ describe OptionSet do
   describe 'validations' do
     it { should_not allow_value(nil).for(:compatible) }
   end
-
-  describe '#generate_file' do
-    it 'passes its options to the vimrc generator' do
-      options = { compatible: true }
-      expect(VimrcGenerator).to receive(:generate).with(options)
-
-      described_class.new(options).generate_file
-    end
-  end
 end
