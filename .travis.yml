@@ -1,9 +1,14 @@
 language: ruby
 rvm:
   - 2.1.2
+script: xvfb-run rake
 before_install:
   - echo "2.1.2" > .ruby-version
 before_script:
   - cp config/database.yml.travis config/database.yml
   - psql -c 'create database travis_ci_test;' -U postgres
 bundler_args: --without development production
+cache: bundler
+global:
+  - BUNDLE_JOBS=4
+  - NOKOGIRI_USE_SYSTEM_LIBRARIES=true
