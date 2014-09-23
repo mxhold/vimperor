@@ -28,7 +28,7 @@ feature 'vimrc generation' do
 
     # find to wait for generation
     find('samp', text: 'set nocompatible')
-    expect(page.current_path).to match(/\/v\/[A-z0-9]+/)
+    expect(page.current_path).to match(/[A-z0-9]+/)
 
     visit page.current_path
 

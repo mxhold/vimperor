@@ -23,7 +23,7 @@ describe "OptionSet management" do
   describe 'show' do
     it 'renders the option set' do
       option_set = create(:option_set)
-      get "/v/#{option_set.to_param}"
+      get "/#{option_set.to_param}"
 
       expect(response.status).to eql 200
     end
