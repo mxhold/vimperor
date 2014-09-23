@@ -1,0 +1,22 @@
+body {
+  background-color: #333;
+}
+
+.main-view {
+  margin: 0 80px;
+  width: auto;
+}
+
+.intro {
+  margin-top: 60px;
+  text-align: center;
+  background-color: #333;
+  color: #fff;
+  a {
+    color: inherit;
+    &:hover {
+      text-decoration: inherit;
+    }
+  }
+}
+
