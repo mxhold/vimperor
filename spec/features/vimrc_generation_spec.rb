@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 feature 'vimrc generation' do
-  scenario 'User generates vimrc with all default settings', js: true do
+  scenario 'User can generate vimrc with all default settings', js: true do
     visit '/'
 
     expect(find('.output-panel', visible: false)).not_to be_visible
@@ -13,7 +13,7 @@ feature 'vimrc generation' do
     expect(page).to have_content('set nocompatible')
   end
 
-  scenario 'User generates vimrc with custom settings', js: true do
+  scenario 'User can generate vimrc with custom settings', js: true do
     visit '/'
 
     choose('On')
@@ -22,7 +22,7 @@ feature 'vimrc generation' do
     expect(page).to have_content('set compatible')
   end
 
-  scenario 'User generates vimrc and then visits the show page', js: true do
+  scenario 'User can generate vimrc and then reload the page', js: true do
     visit '/'
     click_on('Generate')
 
