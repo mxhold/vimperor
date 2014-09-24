@@ -1,14 +1,14 @@
 language: ruby
-rvm:
-  - 2.1.2
-script: bundle exec xvfb-run rake
-before_install:
-  - echo "2.1.2" > .ruby-version
-before_script:
-  - cp config/database.yml.travis config/database.yml
-  - psql -c 'create database travis_ci_test;' -U postgres
-bundler_args: --without development production
 cache: bundler
+rvm:
+- 2.1.2
+before_install:
+- echo "2.1.2" > .ruby-version
+bundler_args: --without development production test
+before_script:
+- cp config/database.yml.travis config/database.yml
+- psql -c 'create database travis_ci_test;' -U postgres
+script: bundle exec xvfb-run rake
 addons:
   code_climate:
     repo_token: f0bcc3ca807f3b8b8c6c0061877b7e3987e229c2d1924ab0a5db46fa62c0b990
