@@ -48,6 +48,7 @@ group :test do
   gem 'capybara'
   gem 'capybara-webkit'
   gem 'shoulda-matchers'
+  gem "codeclimate-test-reporter", require: false
 end
 
 group :production do

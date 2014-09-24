@@ -9,6 +9,6 @@ before_script:
   - psql -c 'create database travis_ci_test;' -U postgres
 bundler_args: --without development production
 cache: bundler
-global:
-  - BUNDLE_JOBS=4
-  - NOKOGIRI_USE_SYSTEM_LIBRARIES=true
+addons:
+  code_climate:
+    repo_token: f0bcc3ca807f3b8b8c6c0061877b7e3987e229c2d1924ab0a5db46fa62c0b990
