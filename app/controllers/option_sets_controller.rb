@@ -1,4 +1,10 @@
 class OptionSetsController < ApplicationController
+  before_action :decode_hashid
+
+  def decode_hashid
+    params[:id] = Hashid.decode(params[:hashid]) unless params[:hashid].blank?
+  end
+
   def new
     @option_set = OptionSet.new
   end
