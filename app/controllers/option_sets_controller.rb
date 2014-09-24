@@ -1,9 +1,6 @@
 class OptionSetsController < ApplicationController
   before_action :decode_hashid
 
-  def decode_hashid
-    params[:id] = Hashid.decode(params[:hashid]) unless params[:hashid].blank?
-  end
 
   def new
     @option_set = OptionSet.new
@@ -29,6 +26,10 @@ class OptionSetsController < ApplicationController
   end
 
   private
+
+  def decode_hashid
+    params[:id] = Hashid.decode(params[:hashid]) unless params[:hashid].blank?
+  end
 
   def option_set_params
     params.fetch(:option_set, {}).permit(:compatible)
