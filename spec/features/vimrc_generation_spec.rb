@@ -4,11 +4,7 @@ feature 'vimrc generation' do
   scenario 'User can generate vimrc with all default settings', js: true do
     visit '/'
 
-    expect(find('.output-panel').text).to be_empty
-
     click_on('Generate')
-
-    expect(find('.output-panel')).to be_visible
 
     expect(page).to have_content('set nocompatible')
   end
