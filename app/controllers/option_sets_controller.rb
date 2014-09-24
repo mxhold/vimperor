@@ -21,7 +21,14 @@ class OptionSetsController < ApplicationController
 
   def download
     @option_set = OptionSet.find(params[:id])
-    send_data(render_to_string(partial: 'option_set.text.erb', locals: { option_set: @option_set }), filename: 'vimrc.txt', type: 'text/plain')
+    send_data(
+      render_to_string(
+        partial: 'option_set.text.erb',
+        locals: { option_set: @option_set }
+      ),
+      filename: 'vimrc.txt',
+      type: 'text/plain'
+    )
   end
 
   private
