@@ -13,7 +13,7 @@ describe "OptionSet management" do
 
     it 'responds with errors given invalid settings' do
       expect {
-        post "/option_sets", format: :js, option_set: { compatible: nil }
+        post "/option_sets", format: :js, option_set: { foo: nil }
       }.not_to change { OptionSet.count }
 
       expect(response.status).to eql 422

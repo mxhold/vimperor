@@ -2,10 +2,10 @@ require 'rails_helper'
 
 describe OptionSet do
   describe 'db columns' do
-    it { should have_db_column(:compatible).of_type(:boolean).with_options(null: false) }
+    it { should have_db_column(:options).of_type(:hstore) }
   end
 
   describe 'validations' do
-    it { should_not allow_value(nil).for(:compatible) }
+    it { should validate_presence_of(:options) }
   end
 end
