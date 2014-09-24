@@ -28,4 +28,14 @@ describe "OptionSet management" do
       expect(response.status).to eql 200
     end
   end
+  describe 'download' do
+    it 'sends a text file' do
+      option_set = create(:option_set)
+      get "/#{option_set.to_param}/download"
+
+      expect(response.status).to eql 200
+      expect(response.headers["Content-Disposition"]).to include "attachment"
+      expect(response.headers["Content-Type"]).to eql "text/plain"
+    end
+  end
 end

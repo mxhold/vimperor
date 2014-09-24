@@ -1,4 +1,7 @@
-history.pushState({}, 'OptionSet<%= @option_set.id %>', '<%= url_for @option_set %>')
-$('.output samp').html("<%=j render 'option_set.text.erb' %>")
-$('.output-panel').show('fast')
+<% if @option_set.errors.any? %>
+  $('.output-panel').html("An error occurred.")
+<% else %>
+  history.pushState({}, 'OptionSet<%= @option_set.id %>', '<%= url_for @option_set %>')
+  $('.output-panel').html("<%=j render 'output', option_set: @option_set %>")
+<% end %>
 $('.submit i').removeClass('fa-spin')

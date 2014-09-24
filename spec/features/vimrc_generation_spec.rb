@@ -4,7 +4,7 @@ feature 'vimrc generation' do
   scenario 'User can generate vimrc with all default settings', js: true do
     visit '/'
 
-    expect(find('.output-panel', visible: false)).not_to be_visible
+    expect(find('.output-panel').text).to be_empty
 
     click_on('Generate')
 
@@ -33,5 +33,13 @@ feature 'vimrc generation' do
     visit page.current_path
 
     expect(page).to have_content('set nocompatible')
+  end
+
+  scenario 'User can download generated vimrc', js: true do
+    visit '/'
+    click_on('Generate')
+
+    click_on('Download')
+    expect(page.response_headers["Content-Disposition"]).to include "attachment"
   end
 end
