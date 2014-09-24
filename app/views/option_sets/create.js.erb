@@ -2,6 +2,6 @@
   $('.output-panel').html("An error occurred.")
 <% else %>
   history.pushState({}, 'OptionSet<%= @option_set.id %>', '<%= url_for @option_set %>')
-  $('.output-panel').html("<%=j render 'output', option_set: @option_set %>")
+  $('.output-container').html("<%=j render 'output', option_set: @option_set %>")
 <% end %>
 $('.submit i').removeClass('fa-spin')

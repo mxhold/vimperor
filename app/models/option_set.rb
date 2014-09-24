@@ -1,6 +1,6 @@
 class OptionSet < ActiveRecord::Base
   store_accessor :options, :compatible
-  
+
   validates :options, presence: true
 
   def to_param
