@@ -26,6 +26,20 @@
           </div>
         </div>
       </div>
+      <div class="option">
+        <label class="control-label">
+          Leader key
+        </label>
+        <a href="http://vimdoc.sourceforge.net/htmldoc/map.html#mapleader" class="doc-link" target="_blank">
+          see documentation
+        </a>
+        <span class="help-block">
+          Sets a prefix that can be referred to in other mappings as &lt;Leader&gt;
+        </span>
+        <div class="choices form-group leader">
+          <%= f.text_field :leader, value: ' ', class: 'form-control' %>
+        </div>
+      </div>
       <div class="submit">
         <button type="submit" class="btn btn-default">
           <%= icon('cog') %> Generate

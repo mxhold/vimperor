@@ -7,6 +7,7 @@ feature 'vimrc generation' do
     click_on('Generate')
 
     expect(page).to have_content('set nocompatible')
+    expect(page).to have_content('let mapleader=" "')
   end
 
   scenario 'User can generate vimrc with custom settings', js: true do
@@ -23,7 +24,7 @@ feature 'vimrc generation' do
     click_on('Generate')
 
     # find to wait for generation
-    find('samp', text: 'set nocompatible')
+    find('pre', text: 'set nocompatible')
     expect(page.current_path).to match(/[A-z0-9]+/)
 
     visit page.current_path

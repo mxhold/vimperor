@@ -1,4 +1,3 @@
-
 .option-set {
   min-width: 400px;
   max-width: 800px;
@@ -12,13 +11,16 @@
   padding: 30px;
 }
 
+.option {
+  margin-bottom: 30px;
+}
+
 .choices {
   margin: 20px 0 0 20px;
 }
 
 .submit {
   text-align: center;
-  margin-bottom: 20px;
 }
 
 .option:hover .doc-link {
@@ -40,9 +42,18 @@
 .output {
   margin: 20px;
   background-color: #fff;
+  pre {
+    padding: 0;
+    background-color: inherit;
+    border: none;
+  }
 }
 
 .download {
   text-align: center;
   margin-bottom: 10px;
+}
+
+.leader {
+  width: 30px;
 }

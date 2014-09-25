@@ -1,5 +1,5 @@
 class OptionSet < ActiveRecord::Base
-  store_accessor :options, :compatible
+  store_accessor :options, :compatible, :leader
 
   validates :options, presence: true
 

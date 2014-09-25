@@ -38,6 +38,6 @@ class OptionSetsController < ApplicationController
   end
 
   def option_set_params
-    params.fetch(:option_set, {}).permit(:compatible)
+    params.fetch(:option_set, {}).permit(:compatible, :leader)
   end
 end
