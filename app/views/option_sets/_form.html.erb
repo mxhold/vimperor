@@ -37,7 +37,7 @@
           Sets a prefix that can be referred to in other mappings as &lt;Leader&gt;
         </span>
         <div class="choices form-group leader">
-          <%= f.text_field :leader, value: ' ', class: 'form-control' %>
+          <%= f.text_field :leader, value: ' ', class: 'form-control', maxlength: 1, data: { action: 'select_contents' } %>
         </div>
       </div>
       <div class="submit">
