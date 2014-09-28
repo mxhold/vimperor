@@ -22,10 +22,7 @@ class OptionSetsController < ApplicationController
   def download
     @option_set = OptionSet.find(params[:id])
     send_data(
-      render_to_string(
-        partial: 'option_set.text.erb',
-        locals: { option_set: @option_set }
-      ),
+      OptionSetPresenter.new(@option_set).render,
       filename: 'vimrc.txt',
       type: 'text/plain'
     )
