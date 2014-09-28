@@ -1,3 +1,4 @@
+require 'vimrc_renderer/option_renderer'
 module VimrcRenderer
   class VimrcRenderer
     def initialize(options)
@@ -5,27 +6,21 @@ module VimrcRenderer
     end
 
     def render
-      [compatible, leader].join("\n")
-    end
-
-    def compatible
-      if options.has_key?(:compatible)
-        if options[:compatible]
-          "set compatible"
-        else
-          "set nocompatible"
-        end
-      end
-    end
-
-    def leader
-      if options.has_key?(:leader)
-        "let mapleader=\"#{options[:leader]}\""
-      end
+      @options.map do |option, value|
+        renderer_for(option).new(value).render
+      end.join("\n")
     end
 
     private
 
+    def renderer_for(option)
+      {
+        compatible: OptionRenderer::Compatible,
+        leader: OptionRenderer::Leader
+      }[option]
+    end
+
     attr_reader :options
   end
 end
+
