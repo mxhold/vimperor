@@ -7,18 +7,11 @@ module VimrcRenderer
 
     def render
       @options.map do |option, value|
-        renderer_for(option).new(value).render
+        OptionRenderer.for(option).new(value).render
       end.join("\n")
     end
 
     private
-
-    def renderer_for(option)
-      {
-        compatible: OptionRenderer::Compatible,
-        leader: OptionRenderer::Leader
-      }[option]
-    end
 
     attr_reader :options
   end
