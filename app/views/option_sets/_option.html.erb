@@ -1,0 +1,14 @@
+<div class="option">
+  <label class="control-label">
+    <%= label %>
+  </label>
+  <a href="<%= doc_url %>" class="doc-link" target="_blank">
+    see documentation
+  </a>
+  <span class="help-block">
+    <%= help_text %>
+  </span>
+  <div class="choices">
+    <%= yield %>
+  </div>
+</div>

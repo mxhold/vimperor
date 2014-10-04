@@ -1,0 +1,20 @@
+<%= render(
+  layout: "option",
+  locals: {
+    label: "Vi-compatibility",
+    doc_url: "http://vimdoc.sourceforge.net/htmldoc/options.html#'compatible'",
+    help_text: "Adds backwards-compatibility with the Vi editor by turning off many Vim features"
+  }) do %>
+  <div class="radio">
+    <%= f.label :compatible, value: true do %>
+      <%= f.radio_button :compatible, true %>
+      On
+    <% end %>
+    <div class="radio">
+      <%= f.label :compatible, value: false do %>
+        <%= f.radio_button :compatible, false, checked: true %>
+        Off (recommended)
+      <% end %>
+    </div>
+  </div>
+<% end %>

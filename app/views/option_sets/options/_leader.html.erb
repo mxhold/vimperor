@@ -1,0 +1,13 @@
+<%= render(
+  layout: "option",
+  locals: {
+    label: "Leader key",
+    doc_url: "http://vimdoc.sourceforge.net/htmldoc/map.html#mapleader",
+    help_text: "Sets a prefix that can be referred to in other mappings as <Leader>"
+  }) do %>
+  <%= f.text_field :leader,
+    value: ' ',
+    class: 'leader form-control',
+    maxlength: 1,
+    data: { action: 'select_contents' } %>
+<% end %>
