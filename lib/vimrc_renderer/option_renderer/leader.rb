@@ -6,8 +6,12 @@ module VimrcRenderer
       end
 
       def render
-        "let mapleader=\"#{@leader_key}\""
+        "let mapleader=\"#{leader_key}\""
       end
+
+      private
+
+      attr_reader :leader_key
     end
   end
 end
