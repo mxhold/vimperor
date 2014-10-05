@@ -13,6 +13,14 @@
 
 .option {
   margin-bottom: 30px;
+  label {
+    font-weight: normal;
+  }
+}
+
+.option-header {
+  display: inline;
+  font-size: 16px;
 }
 
 .choices {
