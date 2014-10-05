@@ -1,5 +1,6 @@
-require_relative 'option_renderer/compatible'
-require_relative 'option_renderer/leader'
+Dir[File.join(__dir__, "option_renderer", "*.rb")].each do |file|
+  require file
+end
 module VimrcRenderer
   module OptionRenderer
     #:nodoc:
