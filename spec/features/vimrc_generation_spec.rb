@@ -8,6 +8,7 @@ feature 'vimrc generation' do
 
     expect(page).to have_content('set nocompatible')
     expect(page).to have_content('let mapleader=" "')
+    expect(page).to have_content('set backspace=indent,eol,start')
   end
 
   scenario 'User can generate vimrc with custom settings', js: true do

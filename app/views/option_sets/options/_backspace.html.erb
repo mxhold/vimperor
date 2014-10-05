@@ -1,0 +1,23 @@
+<%= render(
+  layout: "option",
+  locals: {
+    label: "Backspace",
+    doc_url: "http://vimdoc.sourceforge.net/htmldoc/options.html#'backspace'",
+    help_text: "Sets what boundaries you can backspace over"
+  }) do %>
+  <div class="checkbox">
+    <%= f.label :backspace_indent do %>
+      <%= f.check_box :backspace_indent, checked: true %> Autoindent
+    <% end %>
+  </div>
+  <div class="checkbox">
+    <%= f.label :backspace_eol do %>
+      <%= f.check_box :backspace_eol, checked: true %> Line breaks
+    <% end %>
+  </div>
+  <div class="checkbox">
+    <%= f.label :backspace_start do %>
+      <%= f.check_box :backspace_start, checked: true %> Start of insert
+    <% end %>
+  </div>
+<% end %>

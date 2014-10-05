@@ -15,7 +15,9 @@ describe OptionSetPresenter do
       )
     end
     it 'renders all the options' do
-      expect(subject.render).to eql("set compatible\nlet mapleader=\",\"")
+      expect(subject.render).to eql(
+        "set compatible\nlet mapleader=\",\"\nset backspace=indent,eol,start"
+      )
     end
   end
 end
