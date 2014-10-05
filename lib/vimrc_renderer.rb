@@ -7,7 +7,7 @@ module VimrcRenderer
 
     def render
       @options.map do |option, value|
-        OptionRenderer.for(option).new(value).render
+        OptionRenderer.renderer_for(option).new(value).render
       end.join("\n")
     end
 
