@@ -6,7 +6,7 @@ class OptionSetsController < ApplicationController
   end
 
   def create
-    @option_set = OptionSet.new(option_set_params)
+    @option_set = OptionSet.new(option_set_params.merge(creator_ip: request.remote_ip))
     if @option_set.save
       render :create, status: :created, location: option_sets_path
     else

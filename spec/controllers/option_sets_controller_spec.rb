@@ -9,4 +9,12 @@ describe OptionSetsController do
       expect(controller.params[:id]).to eql "123"
     end
   end
+  describe 'create' do
+    it 'creates the option set with the creator\'s ip address' do
+      expect {
+        post :create, option_set: { compatible: true }, format: :js
+      }.to change(OptionSet, :count).by(1)
+      expect(OptionSet.last.creator_ip).not_to be_nil
+    end
+  end
 end
