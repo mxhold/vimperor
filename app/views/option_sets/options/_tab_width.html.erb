@@ -1,0 +1,12 @@
+<%= render(
+  layout: "option",
+  locals: {
+    label: "Tab width",
+    doc_url: "http://vimdoc.sourceforge.net/htmldoc/options.html#'tabstop'",
+    help_text: "Sets the number of spaces a <Tab> counts for"
+  }) do %>
+  <%= f.number_field :tab_width,
+    value: 2,
+    class: 'tab-width form-control',
+    maxlength: 2 %>
+<% end %>

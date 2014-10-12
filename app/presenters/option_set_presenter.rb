@@ -21,7 +21,8 @@ class OptionSetPresenter
         eol: to_boolean(option_set.backspace_eol),
         start: to_boolean(option_set.backspace_start)
       },
-      expandtab: to_boolean(option_set.expandtab)
+      expandtab: to_boolean(option_set.expandtab),
+      tab_width: option_set.tab_width
     }
   end
 

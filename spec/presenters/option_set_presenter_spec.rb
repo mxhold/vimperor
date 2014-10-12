@@ -11,13 +11,21 @@ describe OptionSetPresenter do
           backspace_indent: '1',
           backspace_eol: '1',
           backspace_start: '1',
-          expandtab: 'true'
+          expandtab: 'true',
+          tab_width: '2'
         )
       )
     end
     it 'renders all the options' do
       expect(subject.render).to eql(
-        "set compatible\nlet mapleader=\",\"\nset backspace=indent,eol,start\nset expandtab"
+        <<-eos
+set compatible
+let mapleader=\",\"
+set backspace=indent,eol,start
+set expandtab
+set tabstop=2
+set shiftwidth=2
+        eos
       )
     end
   end

@@ -10,6 +10,8 @@ feature 'vimrc generation' do
     expect(page).to have_content('let mapleader=" "')
     expect(page).to have_content('set backspace=indent,eol,start')
     expect(page).to have_content('set expandtab')
+    expect(page).to have_content('set tabstop=2')
+    expect(page).to have_content('set shiftwidth=2')
   end
 
   scenario 'User can generate vimrc with custom settings', js: true do
