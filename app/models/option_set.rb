@@ -7,7 +7,8 @@ class OptionSet < ActiveRecord::Base
       :leader,
       :backspace_indent,
       :backspace_eol,
-      :backspace_start
+      :backspace_start,
+      :expandtab
     ]
   end
  

@@ -20,7 +20,8 @@ class OptionSetPresenter
         indent: to_boolean(option_set.backspace_indent),
         eol: to_boolean(option_set.backspace_eol),
         start: to_boolean(option_set.backspace_start)
-      }
+      },
+      expandtab: to_boolean(option_set.expandtab)
     }
   end
 

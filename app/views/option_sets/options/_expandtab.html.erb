@@ -1,0 +1,21 @@
+<%= render(
+  layout: "option",
+  locals: {
+    label: "Expand tabs to spaces",
+    doc_url: "http://vimdoc.sourceforge.net/htmldoc/options.html#'expandtab'",
+    help_text: "Insert spaces instead of tabs when you press the <Tab> key"
+  }) do %>
+  <div class="radio">
+    <%= f.label :expandtab, value: true do %>
+      <%= f.radio_button :expandtab, true, checked: true %>
+      On (recommended)
+    <% end %>
+    <div class="radio">
+      <%= f.label :expandtab, value: false do %>
+        <%= f.radio_button :expandtab, false %>
+        Off
+      <% end %>
+    </div>
+  </div>
+<% end %>
+
