@@ -6,7 +6,7 @@ module VimrcRenderer
       end
 
       def render
-        "set tabstop=#{tab_width}\nset shiftwidth=#{tab_width}\n"
+        "set tabstop=#{tab_width}\nset shiftwidth=#{tab_width}\nset shiftround\n"
       end
 
       private
