@@ -3,8 +3,11 @@
 # be available to Rake.
 
 require File.expand_path('../config/application', __FILE__)
-require 'rubocop/rake_task'
 
 Rails.application.load_tasks
-RuboCop::RakeTask.new(:rubocop)
-Rake::Task[:default].enhance([:rubocop])
+
+unless Rails.env.production?
+  require 'rubocop/rake_task'
+  RuboCop::RakeTask.new(:rubocop)
+  Rake::Task[:default].enhance([:rubocop])
+end
