@@ -5,7 +5,7 @@ describe OptionSetPresenter do
   describe '#render' do
     subject do
       described_class.new(
-        double("OptionSet",
+        double('OptionSet',
           compatible: 'true',
           leader: ',',
           backspace_indent: '1',

@@ -1,23 +1,22 @@
 require 'rails_helper'
 
-describe "OptionSet management" do
-  describe "creation" do
-    it "creates an option set given valid settings" do
+describe 'OptionSet management' do
+  describe 'creation' do
+    it 'creates an option set given valid settings' do
       expect {
-        post "/option_sets", format: :js, option_set: { compatible: true }
+        post '/option_sets', format: :js, option_set: { compatible: true }
       }.to change { OptionSet.count }.by(1)
 
-      expect(response.status).to eql 201
-      expect(response.location).to eql option_sets_path
+      expect(response.status).to eql 200
     end
 
     it 'responds with errors given invalid settings' do
       expect {
-        post "/option_sets", format: :js, option_set: { }
+        post '/option_sets', format: :js, option_set: {}
       }.not_to change { OptionSet.count }
 
-      expect(response.status).to eql 422
-      expect(response.body).to include "error occurred"
+      expect(response.status).to eql 200
+      expect(response.body).to include 'error occurred'
     end
   end
   describe 'show' do
@@ -34,8 +33,8 @@ describe "OptionSet management" do
       get "/#{option_set.to_param}/download"
 
       expect(response.status).to eql 200
-      expect(response.headers["Content-Disposition"]).to include "attachment"
-      expect(response.headers["Content-Type"]).to eql "text/plain"
+      expect(response.headers['Content-Disposition']).to include 'attachment'
+      expect(response.headers['Content-Type']).to eql 'text/plain'
     end
   end
 end

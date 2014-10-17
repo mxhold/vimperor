@@ -1,0 +1,27 @@
+AllCops:
+  Exclude:
+    - 'config/unicorn.rb'
+    - 'bin/rails'
+    - 'bin/rake'
+    - 'bin/spring'
+    - 'db/schema.rb'
+  RunRailsCops: true
+Style/TrailingComma:
+  Enabled: false
+Style/Documentation:
+  Enabled: false
+Style/Blocks:
+  Exclude:
+    - 'spec/**/*'
+Style/AlignParameters:
+  Enabled: false
+Metrics/MethodLength:
+  Max: 5
+Metrics/CyclomaticComplexity:
+  Max: 4
+Metrics/ParameterLists:
+  Max: 3
+  CountKeywordArgs: true
+Rails/Delegate:
+  Exclude:
+    - 'app/services/hashid.rb'

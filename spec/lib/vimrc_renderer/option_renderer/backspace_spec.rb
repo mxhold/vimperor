@@ -23,4 +23,3 @@ describe VimrcRenderer::OptionRenderer::Backspace do
     end
   end
 end
-

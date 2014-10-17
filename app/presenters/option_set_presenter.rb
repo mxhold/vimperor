@@ -12,6 +12,7 @@ class OptionSetPresenter
 
   private
 
+  # rubocop:disable Metrics/MethodLength
   def renderer_options_for(option_set)
     {
       compatible: to_boolean(option_set.compatible),
@@ -25,6 +26,7 @@ class OptionSetPresenter
       tab_width: option_set.tab_width
     }
   end
+  # rubocop:enable Metrics/MethodLength
 
   def to_boolean(string)
     string = string.to_s

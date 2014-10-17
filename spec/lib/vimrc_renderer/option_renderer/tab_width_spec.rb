@@ -5,7 +5,11 @@ describe VimrcRenderer::OptionRenderer::TabWidth do
   describe '#render' do
     subject { described_class.new(2) }
     it 'returns the value as tabstop and shiftwidth' do
-      expect(subject.render).to eql "set tabstop=2\nset shiftwidth=2\nset shiftround\n"
+      expect(subject.render).to eql <<-eos
+set tabstop=2
+set shiftwidth=2
+set shiftround
+eos
     end
   end
 end

@@ -37,4 +37,3 @@ describe VimrcRenderer::VimrcRenderer do
     end
   end
 end
-

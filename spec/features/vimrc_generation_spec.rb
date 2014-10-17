@@ -41,6 +41,6 @@ feature 'vimrc generation' do
     click_on('Generate')
 
     click_on('Download')
-    expect(page.response_headers["Content-Disposition"]).to include "attachment"
+    expect(page.response_headers['Content-Disposition']).to include 'attachment'
   end
 end

@@ -1,4 +1,4 @@
-Dir[File.join(__dir__, "option_renderer", "*.rb")].each do |file|
+Dir[File.join(__dir__, 'option_renderer', '*.rb')].each do |file|
   require file
 end
 module VimrcRenderer

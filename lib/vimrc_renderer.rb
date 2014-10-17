@@ -16,4 +16,3 @@ module VimrcRenderer
     attr_reader :options
   end
 end
-

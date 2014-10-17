@@ -142,6 +142,8 @@ GEM
     rainbow (2.0.0)
     raindrops (0.13.0)
     rake (10.3.2)
+    responders (2.0.0)
+      railties (>= 4.2.0.alpha, < 5)
     rspec-core (3.0.4)
       rspec-support (~> 3.0.0)
     rspec-expectations (3.0.4)
@@ -227,6 +229,7 @@ DEPENDENCIES
   rails (= 4.2.0.beta2)
   rails-html-sanitizer (~> 1.0)
   rails_12factor
+  responders
   rspec-rails (~> 3.0.0)
   rubocop
   sass-rails (~> 5.0.0.beta1)

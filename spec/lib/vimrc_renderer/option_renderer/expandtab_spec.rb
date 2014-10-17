@@ -17,4 +17,3 @@ describe VimrcRenderer::OptionRenderer::Expandtab do
     end
   end
 end
-

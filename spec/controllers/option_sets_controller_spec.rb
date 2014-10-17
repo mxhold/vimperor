@@ -6,7 +6,7 @@ describe OptionSetsController do
       expect(Hashid).to receive(:decode).with('abc123').and_return '123'
       allow(OptionSet).to receive(:find)
       get :show, hashid: 'abc123'
-      expect(controller.params[:id]).to eql "123"
+      expect(controller.params[:id]).to eql '123'
     end
   end
   describe 'create' do

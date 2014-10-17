@@ -17,4 +17,3 @@ describe VimrcRenderer::OptionRenderer::Compatible do
     end
   end
 end
-

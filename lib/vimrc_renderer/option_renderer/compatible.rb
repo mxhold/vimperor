@@ -2,7 +2,7 @@ module VimrcRenderer
   module OptionRenderer
     class Compatible
       def initialize(compatible)
-        @setting = compatible ? "compatible" : "nocompatible"
+        @setting = compatible ? 'compatible' : 'nocompatible'
       end
 
       def render

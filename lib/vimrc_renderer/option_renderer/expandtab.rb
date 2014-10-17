@@ -2,7 +2,7 @@ module VimrcRenderer
   module OptionRenderer
     class Expandtab
       def initialize(expandtab)
-        @setting = expandtab ? "expandtab" : "noexpandtab"
+        @setting = expandtab ? 'expandtab' : 'noexpandtab'
       end
 
       def render

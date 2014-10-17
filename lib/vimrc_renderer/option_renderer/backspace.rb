@@ -1,11 +1,11 @@
 module VimrcRenderer
   module OptionRenderer
     class Backspace
-      def initialize(indent:,eol:,start:)
+      def initialize(indent:, eol:, start:)
         @settings = []
-        @settings << "indent" if indent
-        @settings << "eol" if eol
-        @settings << "start" if start
+        @settings << 'indent' if indent
+        @settings << 'eol' if eol
+        @settings << 'start' if start
       end
 
       def render
