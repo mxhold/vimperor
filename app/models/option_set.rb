@@ -10,7 +10,15 @@ class OptionSet < ActiveRecord::Base
       :backspace_eol,
       :backspace_start,
       :expandtab,
-      :tab_width
+      :tab_width,
+      :list,
+      :listchars_trail,
+      :listchars_tab_first,
+      :listchars_tab_rest,
+      :listchars_eol,
+      :listchars_nbsp,
+      :listchars_extends,
+      :listchars_precedes
     ]
   end
   # rubocop:enable Metrics/MethodLength

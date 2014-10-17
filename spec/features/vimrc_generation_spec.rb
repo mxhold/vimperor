@@ -12,6 +12,7 @@ feature 'vimrc generation' do
     expect(page).to have_content('set expandtab')
     expect(page).to have_content('set tabstop=2')
     expect(page).to have_content('set shiftwidth=2')
+    expect(page).to have_content('set list listchars=tab:»·,trail:·')
   end
 
   scenario 'User can generate vimrc with custom settings', js: true do

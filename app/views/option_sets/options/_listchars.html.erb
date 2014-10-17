@@ -1,0 +1,94 @@
+<%= render(
+  layout: "option",
+  locals: {
+    label: "Show whitespace",
+    doc_url: "http://vimdoc.sourceforge.net/htmldoc/options.html#'listchars'",
+    help_text: "Make spaces, tabs, etc. more visible by replacing them with other characters"
+  }) do %>
+  <div class="radio">
+    <%= f.label :list, value: true do %>
+      <%= f.radio_button :list, true, checked: true, data: { action: 'enable_listchars' } %>
+      On (recommended)
+    <% end %>
+  </div>
+  <div class="row form-group listchar-group">
+    <div class="col-sm-1">
+      <%= f.text_field :listchars_eol,
+        value: '',
+        class: 'listchar form-control',
+        maxlength: 1,
+        data: { action: 'select_contents' } %>
+    </div>
+    <%= f.label :listchars_eol, 'End of line', class: 'control-label col-sm-11' %>
+  </div>
+  <div class="row form-group listchar-group">
+    <div class="col-sm-1">
+      <%= f.text_field :listchars_tab_first,
+        value: '»',
+        class: 'listchar form-control',
+        maxlength: 1,
+        data: { action: 'select_contents' } %>
+    </div>
+    <%= f.label :listchars_tab_first, 'Tab (first character)', class: 'control-label col-sm-11' %>
+  </div>
+  <div class="row form-group listchar-group">
+    <div class="col-sm-1">
+      <%= f.text_field :listchars_tab_rest,
+        value: '·',
+        class: 'listchar form-control',
+        maxlength: 1,
+        data: { action: 'select_contents' } %>
+    </div>
+    <%= f.label :listchars_tab_rest, 'Tab (remaining characters)', class: 'control-label col-sm-11' %>
+  </div>
+  <div class="row form-group listchar-group">
+    <div class="col-sm-1">
+      <%= f.text_field :listchars_trail,
+        value: '·',
+        class: 'listchar form-control',
+        maxlength: 1,
+        data: { action: 'select_contents' } %>
+    </div>
+    <%= f.label :listchars_trail, 'Trailing whitespace', class: 'control-label col-sm-11' %>
+  </div>
+  <div class="row form-group listchar-group">
+    <div class="col-sm-1">
+      <%= f.text_field :listchars_extends,
+        value: '',
+        class: 'listchar form-control',
+        maxlength: 1,
+        data: { action: 'select_contents' } %>
+    </div>
+    <%= f.label :listchars_extends, class: 'control-label col-sm-11' do %>
+      Line continues beyond right edge (when wrap is off)
+    <% end %>
+  </div>
+  <div class="row form-group listchar-group">
+    <div class="col-sm-1">
+      <%= f.text_field :listchars_precedes,
+        value: '',
+        class: 'listchar form-control',
+        maxlength: 1,
+        data: { action: 'select_contents' } %>
+    </div>
+    <%= f.label :listchars_precedes, class: 'control-label col-sm-11' do %>
+      Line continues beyond left edge (when wrap is off)
+    <% end %>
+  </div>
+  <div class="row form-group listchar-group">
+    <div class="col-sm-1">
+      <%= f.text_field :listchars_nbsp,
+        value: '',
+        class: 'listchar form-control',
+        maxlength: 1,
+        data: { action: 'select_contents' } %>
+    </div>
+    <%= f.label :listchars_nbsp, 'Non-breaking space', class: 'control-label col-sm-11' %>
+  </div>
+  <div class="radio">
+    <%= f.label :list, value: false do %>
+      <%= f.radio_button :list, false, data: { action: 'disable_listchars' } %>
+      Off
+    <% end %>
+  </div>
+<% end %>

@@ -6,11 +6,11 @@ module VimrcRenderer
       end
 
       def render
-        <<-eos
+        <<-EOS.chomp
 set tabstop=#{tab_width}
 set shiftwidth=#{tab_width}
 set shiftround
-eos
+        EOS
       end
 
       private
