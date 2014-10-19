@@ -11,3 +11,4 @@ script: bundle exec xvfb-run rake
 addons:
   code_climate:
     repo_token: f0bcc3ca807f3b8b8c6c0061877b7e3987e229c2d1924ab0a5db46fa62c0b990
+  postgresql: "9.3"
