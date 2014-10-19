@@ -38,7 +38,7 @@ CREATE TABLE option_sets (
     created_at timestamp without time zone,
     updated_at timestamp without time zone,
     creator_ip inet,
-    options jsonb
+    options json
 );
 
 
@@ -105,4 +105,6 @@ INSERT INTO schema_migrations (version) VALUES ('20140924133057');
 INSERT INTO schema_migrations (version) VALUES ('20141005235555');
 
 INSERT INTO schema_migrations (version) VALUES ('20141019162846');
+
+INSERT INTO schema_migrations (version) VALUES ('20141019193445');
 

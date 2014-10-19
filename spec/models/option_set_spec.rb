@@ -2,7 +2,8 @@ require 'rails_helper'
 
 describe OptionSet do
   describe 'db columns' do
-    it { should have_db_column(:options).of_type(:jsonb) }
+    # TODO: Update to jsonb when Postgres 9.4 is released
+    it { should have_db_column(:options).of_type(:json) }
   end
 
   describe '#to_param' do
