@@ -1,5 +1,6 @@
 <%= form_for(
-  option_set,
+  option_set_form,
+  as: :option_set,
   url: option_sets_path,
   method: :post,
   remote: true,
@@ -14,9 +15,7 @@
       </div>
     </div>
     <div class="output-container">
-      <% if option_set.persisted? %>
-        <%= render 'output', option_set: option_set %>
-      <% end %>
+      <%= content_for(:output) %>
     </div>
   </div>
 <% end %>

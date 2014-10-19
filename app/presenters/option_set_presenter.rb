@@ -1,8 +1,9 @@
 require_relative '../../lib/vimrc_renderer'
 class OptionSetPresenter
   def initialize(option_set)
+    @options = option_set.options
     @renderer = VimrcRenderer::VimrcRenderer.new(
-      renderer_options_for(option_set)
+      renderer_options
     )
   end
 
@@ -12,30 +13,32 @@ class OptionSetPresenter
 
   private
 
+  def option(*keys)
+    keys.reduce(@options) do |memo, key|
+      memo.fetch(key.to_s, nil) if memo.respond_to?(:fetch)
+    end
+  end
+
   # rubocop:disable Metrics/MethodLength
-  def renderer_options_for(option_set)
+  def renderer_options
     {
-      compatible: to_boolean(option_set.compatible),
-      leader: option_set.leader,
+      compatible: to_boolean(option(:compatible)),
+      leader: option(:leader),
       backspace: {
-        indent: to_boolean(option_set.backspace_indent),
-        eol: to_boolean(option_set.backspace_eol),
-        start: to_boolean(option_set.backspace_start)
+        indent: to_boolean(option(:backspace, :indent)),
+        eol: to_boolean(option(:backspace, :eol)),
+        start: to_boolean(option(:backspace, :start))
       },
-      expandtab: to_boolean(option_set.expandtab),
-      tab_width: option_set.tab_width,
+      expandtab: to_boolean(option(:expandtab)),
+      tab_width: option(:tab_width),
       list: {
-        list: to_boolean(option_set.list),
-        trail: nil_if_blank(option_set.listchars_trail),
-        tab: nil_if_blank(
-          "#{option_set.listchars_tab_first}#{option_set.listchars_tab_rest}"
-        ),
-        tab_first: nil_if_blank(option_set.listchars_tab_first),
-        tab_rest: nil_if_blank(option_set.listchars_tab_rest),
-        eol: nil_if_blank(option_set.listchars_eol),
-        nbsp: nil_if_blank(option_set.listchars_nbsp),
-        extends: nil_if_blank(option_set.listchars_extends),
-        precedes: nil_if_blank(option_set.listchars_precedes),
+        list: to_boolean(option(:list, :list)),
+        trail: nil_if_blank(option(:list, :trail)),
+        tab: nil_if_blank(option(:list, :tab)),
+        eol: nil_if_blank(option(:list, :eol)),
+        nbsp: nil_if_blank(option(:list, :nbsp)),
+        extends: nil_if_blank(option(:list, :extends)),
+        precedes: nil_if_blank(option(:list, :precedes)),
       }
     }
   end

@@ -32,5 +32,8 @@ module Vimperor
 
     # For not swallow errors in after_commit/after_rollback callbacks.
     config.active_record.raise_in_transactional_callbacks = true
+
+    # Dump to SQL since we're using Postgres-specific column types (JSONB)
+    config.active_record.schema_format = :sql
   end
 end

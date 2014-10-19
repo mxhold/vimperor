@@ -5,16 +5,17 @@ class OptionSetsController < ApplicationController
   before_action :set_option_set, only: [:show, :download]
 
   def new
-    @option_set = OptionSet.new
+    @option_set_form = OptionSetForm.new
   end
 
   def create
-    @option_set = OptionSet.create(option_set_params)
+    option_set_form = OptionSetForm.new(option_set_params)
+    @option_set = option_set_form.submit
     respond_with(@option_set)
   end
 
   def show
-    @new_option_set = OptionSet.new
+    @option_set_form = OptionSetForm.new
   end
 
   def download
@@ -37,7 +38,7 @@ class OptionSetsController < ApplicationController
 
   def option_set_params
     params.fetch(:option_set, {}).permit(
-      OptionSet.valid_options,
+      OptionSetForm.valid_options,
     ).merge(
       creator_ip: request.remote_ip
     )

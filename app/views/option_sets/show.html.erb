@@ -1,1 +1,4 @@
-<%= render 'form', new_option_set: @new_option_set, option_set: @option_set %>
+<% content_for(:output) do %>
+  <%= render 'output', option_set: @option_set %>
+<% end %>
+<%= render 'form', option_set_form: @option_set_form %>

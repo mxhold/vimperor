@@ -9,15 +9,6 @@ describe 'OptionSet management' do
 
       expect(response.status).to eql 200
     end
-
-    it 'responds with errors given invalid settings' do
-      expect {
-        post '/option_sets', format: :js, option_set: {}
-      }.not_to change { OptionSet.count }
-
-      expect(response.status).to eql 200
-      expect(response.body).to include 'error occurred'
-    end
   end
   describe 'show' do
     it 'renders the option set' do

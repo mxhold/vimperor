@@ -5,22 +5,28 @@ describe OptionSetPresenter do
   describe '#render' do
     subject do
       described_class.new(
-        double('OptionSet',
-          compatible: 'false',
-          leader: ',',
-          backspace_indent: '1',
-          backspace_eol: '1',
-          backspace_start: '1',
-          expandtab: 'true',
-          tab_width: '2',
-          list: 'true',
-          listchars_trail: '*',
-          listchars_tab_first: '>',
-          listchars_tab_rest: '-',
-          listchars_eol: '$',
-          listchars_nbsp: '',
-          listchars_extends: '>',
-          listchars_precedes: '<',
+        double(
+          'OptionSet',
+          'options' => {
+            'compatible' => 'false',
+            'leader' => ',',
+            'backspace' => {
+              'indent' => '1',
+              'eol' => '1',
+              'start' => '1',
+            },
+            'expandtab' => 'true',
+            'tab_width' => '2',
+            'list' =>  {
+              'list' => 'true',
+              'trail' => '*',
+              'tab' => '>-',
+              'eol' => '$',
+              'nbsp' => '',
+              'extends' => '>',
+              'precedes' => '<',
+            }
+          }
         )
       )
     end
