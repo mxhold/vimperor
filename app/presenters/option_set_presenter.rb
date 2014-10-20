@@ -1,10 +1,26 @@
 require_relative '../../lib/vimrc_renderer'
+require 'active_support/core_ext/hash/keys'
+
+module HashConversions
+  refine Array do
+    def deep_to_h
+      map do |key, value|
+        if value && value.respond_to?(:to_h) && value.to_h != value
+          [key, value.deep_to_h]
+        else
+          [key, value]
+        end
+      end.to_h
+    end
+  end
+end
+
 class OptionSetPresenter
+  using HashConversions
+
   def initialize(option_set)
     @options = option_set.options
-    @renderer = VimrcRenderer::VimrcRenderer.new(
-      renderer_options
-    )
+    @renderer = VimrcRenderer::VimrcRenderer.new(renderer_options)
   end
 
   def render
@@ -14,30 +30,22 @@ class OptionSetPresenter
   private
 
   def renderer_options
-    deep_convert_to_hash convert(@options)
+    coerce_options(@options)
   end
 
-  def deep_convert_to_hash(array)
-    array.map do |key, value|
-      if value && value.respond_to?(:to_h) && value.to_h != value
-        [key.to_sym, deep_convert_to_hash(value)]
-      else
-        [key.to_sym, value]
-      end
-    end.to_h
-  end
-
-  def convert(options, option_group: nil)
+  def coerce_options(options, option_group: nil)
     options.map do |option, value|
       if value.respond_to?(:fetch)
-        [option, convert(value, option_group: option)]
+        [option, coerce_options(value, option_group: option)]
       else
-        if option_group
-          [option, coerce_to_type(value, option_types[option_group.to_sym][option.to_sym])]
-        else
-          [option, coerce_to_type(value, option_types[option.to_sym])]
-        end
+        [option, coerce_to_type(value, type_for(option_group, option))]
       end
+    end.deep_to_h.deep_symbolize_keys
+  end
+
+  def type_for(*options)
+    options.compact.reduce(option_types) do |memo, option|
+      memo[option.to_sym]
     end
   end
 
@@ -46,7 +54,7 @@ class OptionSetPresenter
     when :boolean
       value == 'true' || value == '1'
     when :string
-      value unless value.empty?
+      value if value && !value.empty?
     when :integer
       value.to_i
     end
