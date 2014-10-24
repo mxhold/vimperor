@@ -38,7 +38,7 @@ class OptionSetsController < ApplicationController
 
   def option_set_params
     params.fetch(:option_set, {}).permit(
-      OptionSetForm.valid_options,
+      OptionConfig.options,
     ).merge(
       creator_ip: request.remote_ip
     )
