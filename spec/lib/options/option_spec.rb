@@ -23,7 +23,7 @@ describe Options::Compatible do
   describe '#form_fields' do
     it 'returns fields for setting the option' do
       form_builder = ActionView::Helpers::FormBuilder.new(:test_model, nil, ActionView::Base.new, {})
-      expect(described_class.form_fields(form_builder)).to eql '<div class="radio"><label for="test_model_compatible_true"><input id="test_model_compatible_true" name="test_model[compatible]" type="radio" value="true" />On</label><div class="radio"><label for="test_model_compatible_false"><input checked="checked" id="test_model_compatible_false" name="test_model[compatible]" type="radio" value="false" />Off (recommended)</label></div></div>'
+      expect(described_class.form_fields(form_builder)).to eql '<div class="radio"><label for="test_model_compatible_true"><input id="test_model_compatible_true" name="test_model[compatible]" type="radio" value="true" />On</label><div class="radio"><label for="test_model_compatible_false"><input checked="checked" id="test_model_compatible_false" name="test_model[compatible]" type="radio" value="false" />Off</label></div></div>'
     end
   end
 end
