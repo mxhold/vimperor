@@ -4,7 +4,7 @@ module OptionManager
   def self.new(option)
     case option
     when :compatible
-      Options::Compatible.new
+      Options::Compatible
     end
   end
 end

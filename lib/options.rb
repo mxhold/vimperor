@@ -5,16 +5,20 @@ module Options
     include ActionView::Helpers::TagHelper
     include ActionView::Helpers::FormTagHelper
 
-    def label
+    def self.label
       'Vi compatibility'
     end
 
-    def doc_url
+    def self.doc_url
       "http://vimdoc.sourceforge.net/htmldoc/options.html#'compatible'"
     end
 
-    def help_text
+    def self.help_text
       'Adds backwards-compatibility with the Vi editor by turning off many Vim features'
+    end
+
+    def self.form_fields(form)
+      new.form_fields(form)
     end
 
     def form_fields(form)
