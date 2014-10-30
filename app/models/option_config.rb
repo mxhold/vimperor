@@ -23,6 +23,10 @@ class OptionConfig < SimpleDelegator
     }
   end
 
+  def self.normal_options
+    [:compatible]
+  end
+
   def self.options
     [
       :compatible,

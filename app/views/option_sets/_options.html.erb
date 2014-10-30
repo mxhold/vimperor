@@ -1,4 +1,6 @@
-<%= render 'option_sets/options/compatible', f: f %>
+<% OptionConfig.normal_options.map do |option| %>
+  <%= render 'option_sets/normal_option', option: OptionManager.new(option), form_builder: f %>
+<% end %>
 <%= render 'option_sets/options/leader', f: f %>
 <%= render 'option_sets/options/backspace', f: f %>
 <%= render 'option_sets/options/expandtab', f: f %>
