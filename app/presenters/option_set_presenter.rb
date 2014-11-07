@@ -1,7 +1,3 @@
-require_relative '../../app/forms/option_set_form'
-require 'active_support/core_ext/hash/keys'
-require 'active_support/core_ext/module/delegation'
-
 class OptionSetPresenter
   delegate :render, to: :renderer
 

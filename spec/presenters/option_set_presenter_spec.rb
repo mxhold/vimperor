@@ -1,4 +1,7 @@
 require 'spec_helper'
+require_relative '../../app/forms/option_set_form'
+require 'active_support/core_ext/hash/keys'
+require 'active_support/core_ext/module/delegation'
 require_relative '../../app/presenters/option_set_presenter'
 
 describe OptionSetPresenter do
