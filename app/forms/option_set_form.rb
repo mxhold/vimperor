@@ -8,6 +8,10 @@ class OptionSetForm
 
   attr_accessor :creator_ip
 
+  def initialize(attributes = default_attributes)
+    super(attributes)
+  end
+
   validates :creator_ip, presence: true
 
   def submit
@@ -19,6 +23,10 @@ class OptionSetForm
   end
 
   private
+
+  def default_attributes
+    OptionConfig.default_attributes
+  end
 
   def option_set_attributes
     {

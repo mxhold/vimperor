@@ -1,4 +1,5 @@
 require 'spec_helper'
+require_relative '../../app/models/option_config'
 require_relative '../../app/forms/option_set_form'
 require 'shoulda/matchers'
 
@@ -7,6 +8,21 @@ describe OptionSetForm do
     stub_const('OptionSet', Class.new do
       def self.create!(_attributes); end
     end)
+  end
+
+  describe '#initialize' do
+    context 'attributes provided' do
+      it 'initializes with the provided attributes' do
+        instance = described_class.new(compatible: true)
+        expect(instance.compatible).to eql true
+      end
+    end
+    context 'no attributes provided' do
+      it 'initializes with the default attributes' do
+        instance = described_class.new
+        expect(instance.compatible).to eql false
+      end
+    end
   end
 
   describe 'validations' do
@@ -35,23 +51,23 @@ describe OptionSetForm do
       )
       expect(OptionSet).to receive(:create!).with(
         options: {
-          compatible: 'true',
-          leader: ',',
-          backspace: {
-            indent: '1',
-            eol: '0',
-            start: '0',
+          'compatible' => 'true',
+          'leader' => ',',
+          'backspace' => {
+            'indent' => '1',
+            'eol' => '0',
+            'start' => '0',
           },
-          expandtab: 'true',
-          tab_width: '2',
-          list: {
-            list: 'false',
-            trail: '*',
-            tab: '>-',
-            eol: '$',
-            nbsp: '=',
-            extends: '>',
-            precedes: '<',
+          'expandtab' => 'true',
+          'tab_width' => '2',
+          'list' => {
+            'list' => 'false',
+            'trail' => '*',
+            'tab' => '>-',
+            'eol' => '$',
+            'nbsp' => '=',
+            'extends' => '>',
+            'precedes' => '<',
           }
         },
         creator_ip: '192.160.1.1'

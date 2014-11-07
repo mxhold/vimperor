@@ -14,7 +14,7 @@ class OptionSetsController < ApplicationController
   end
 
   def show
-    @option_set_form = OptionSetForm.new
+    @option_set_form = OptionSetForm.new(@option_set.form_attributes)
   end
 
   def download

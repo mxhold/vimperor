@@ -33,11 +33,11 @@ module Options
     def form_fields(form)
       content_tag(:div, class: 'radio') do
         concat(form.label(field_name, value: true) do
-          form.radio_button(field_name, true, checked: default_value == true) + true_label
+          form.radio_button(field_name, true) + true_label
         end)
         concat(content_tag(:div, class: 'radio') do
           form.label(field_name, value: false) do
-            form.radio_button(field_name, false, checked: default_value == false) + false_label
+            form.radio_button(field_name, false) + false_label
           end
         end)
       end

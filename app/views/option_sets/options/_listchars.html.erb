@@ -7,14 +7,13 @@
   }) do %>
   <div class="radio">
     <%= f.label :list, value: true do %>
-      <%= f.radio_button :list, true, checked: true, data: { action: 'enable_listchars' } %>
+      <%= f.radio_button :list, true, data: { action: 'enable_listchars' } %>
       On (recommended)
     <% end %>
   </div>
   <div class="row form-group listchar-group">
     <div class="col-sm-1">
       <%= f.text_field :listchars_eol,
-        value: '',
         class: 'listchar form-control',
         maxlength: 1,
         data: { action: 'select_contents' } %>
@@ -24,7 +23,6 @@
   <div class="row form-group listchar-group">
     <div class="col-sm-1">
       <%= f.text_field :listchars_tab_first,
-        value: '»',
         class: 'listchar form-control',
         maxlength: 1,
         data: { action: 'select_contents' } %>
@@ -34,7 +32,6 @@
   <div class="row form-group listchar-group">
     <div class="col-sm-1">
       <%= f.text_field :listchars_tab_rest,
-        value: '·',
         class: 'listchar form-control',
         maxlength: 1,
         data: { action: 'select_contents' } %>
@@ -44,7 +41,6 @@
   <div class="row form-group listchar-group">
     <div class="col-sm-1">
       <%= f.text_field :listchars_trail,
-        value: '·',
         class: 'listchar form-control',
         maxlength: 1,
         data: { action: 'select_contents' } %>
@@ -54,7 +50,6 @@
   <div class="row form-group listchar-group">
     <div class="col-sm-1">
       <%= f.text_field :listchars_extends,
-        value: '',
         class: 'listchar form-control',
         maxlength: 1,
         data: { action: 'select_contents' } %>
@@ -66,7 +61,6 @@
   <div class="row form-group listchar-group">
     <div class="col-sm-1">
       <%= f.text_field :listchars_precedes,
-        value: '',
         class: 'listchar form-control',
         maxlength: 1,
         data: { action: 'select_contents' } %>
@@ -78,7 +72,6 @@
   <div class="row form-group listchar-group">
     <div class="col-sm-1">
       <%= f.text_field :listchars_nbsp,
-        value: '',
         class: 'listchar form-control',
         maxlength: 1,
         data: { action: 'select_contents' } %>
