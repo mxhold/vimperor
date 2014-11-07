@@ -3,17 +3,17 @@ require_relative '../../app/forms/option_set_form'
 require 'shoulda/matchers'
 
 describe OptionSetForm do
+  before do
+    stub_const('OptionSet', Class.new do
+      def self.create!(_attributes); end
+    end)
+  end
+
   describe 'validations' do
     it { should validate_presence_of(:creator_ip) }
   end
 
   describe '#submit' do
-    let(:test_option_set_class) do
-      Class.new do
-        def self.create!(_attributes); end
-      end
-    end
-
     it 'creates an OptionSet with nested hash attributes' do
       form = described_class.new(
         compatible: 'true',
@@ -33,7 +33,7 @@ describe OptionSetForm do
         listchars_precedes: '<',
         creator_ip: '192.160.1.1'
       )
-      expect(test_option_set_class).to receive(:create!).with(
+      expect(OptionSet).to receive(:create!).with(
         options: {
           compatible: 'true',
           leader: ',',
@@ -56,13 +56,13 @@ describe OptionSetForm do
         },
         creator_ip: '192.160.1.1'
       )
-      form.submit(test_option_set_class)
+      form.submit
     end
 
     context 'missing required attributes' do
       it 'returns self with errors' do
-        result = described_class.new.submit(test_option_set_class)
-        expect(result.errors).not_to be_empty
+        option_set = described_class.new.submit
+        expect(option_set.errors).not_to be_empty
       end
     end
   end

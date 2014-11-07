@@ -6,9 +6,9 @@ class OptionSetForm
 
   validates :creator_ip, presence: true
 
-  def submit(option_set_class = OptionSet)
+  def submit
     if valid?
-      option_set_class.create!(option_set_attributes)
+      OptionSet.create!(option_set_attributes)
     else
       self
     end
