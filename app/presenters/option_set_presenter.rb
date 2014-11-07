@@ -14,9 +14,7 @@ class OptionSetPresenter
     TypeCoersion::HashCoercer.new(config: option_types).coerce(options)
   end
 
-  # rubocop:disable Metrics/MethodLength
   def option_types
     OptionConfig.option_types
   end
-  # rubocop:enable Metrics/MethodLength
 end
