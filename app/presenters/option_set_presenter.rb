@@ -1,6 +1,4 @@
 require_relative '../../app/forms/option_set_form'
-require_relative '../../lib/type_coersion'
-require_relative '../../lib/vimrc_renderer'
 require 'active_support/core_ext/hash/keys'
 require 'active_support/core_ext/module/delegation'
 
