@@ -2,6 +2,10 @@ require 'active_model'
 class OptionSetForm
   include ActiveModel::Model
 
+  OptionConfig.options.each do |option|
+    attr_accessor option
+  end
+
   attr_accessor :creator_ip
 
   validates :creator_ip, presence: true
@@ -12,10 +16,6 @@ class OptionSetForm
     else
       self
     end
-  end
-
-  OptionConfig.options.each do |option|
-    attr_accessor option
   end
 
   private
