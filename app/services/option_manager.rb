@@ -1,8 +1,5 @@
 module OptionManager
-  def self.new(option)
-    case option
-    when :compatible
-      Options::Compatible
-    end
+  def self.find(option)
+    Options.find(option)
   end
 end

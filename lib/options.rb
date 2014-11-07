@@ -1,20 +1,82 @@
 require 'action_view'
+require 'yaml'
+require_relative 'options/registry'
+
 module Options
-  class Compatible
-    def self.label
-      'Vi compatibility'
+  def self.find(name)
+    registry.find(name)
+  end
+
+  def self.registry
+    @registry ||= OptionRegistry.new("#{__dir__}/options/config.yml")
+  end
+  private_class_method :registry
+
+  module OptionRegistry
+    def self.new(config_path)
+      OptionRegistryFactory.new(config_path).registry
     end
 
-    def self.doc_url
-      "http://vimdoc.sourceforge.net/htmldoc/options.html#'compatible'"
+    class OptionRegistryFactory
+      def initialize(config_path)
+        @config_path = File.expand_path(config_path)
+        @registry = Registry.new('Option')
+      end
+
+      def options
+        @options ||= YAML::load(File.open(@config_path))['options']
+      end
+
+      def registry
+        options.each do |name, attributes|
+          option = Option.new(
+            name: name,
+            label: attributes.fetch('label'),
+            doc_url: attributes.fetch('doc_url'),
+            help_text: attributes.fetch('help_text'),
+            default_value: attributes.fetch('default_value'),
+            field_type: attributes.fetch('field_type'),
+          )
+          @registry.register(name, option)
+        end
+        @registry
+      end
+    end
+  end
+
+  class Option
+    attr_reader :name, :label, :doc_url, :help_text
+    def initialize(name:, label:, doc_url:, help_text:, field_type:, default_value:)
+      @name = name
+      @label = label
+      @doc_url = doc_url
+      @help_text = help_text
+      @field_type = field_type.to_sym
+      @default_value = default_value
     end
 
-    def self.help_text
-      'Adds backwards-compatibility with the Vi editor by turning off many Vim features'
+    def form_fields(form)
+      form_field_renderer.form_fields(form)
     end
 
-    def self.form_fields(form)
-      BooleanOption.new(field_name: :compatible, default_value: false).form_fields(form)
+    private
+
+    attr_reader :field_type, :default_value
+
+    def form_field_renderer
+      form_field_factory.new(
+        field_name: name,
+        default_value: default_value
+      )
+    end
+
+    def form_field_factory
+      case field_type
+      when :boolean
+        BooleanOption
+      else
+        raise "Unknown form field type: #{field_type}"
+      end
     end
   end
 

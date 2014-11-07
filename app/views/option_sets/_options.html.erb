@@ -1,5 +1,5 @@
-<% OptionConfig.normal_options.map do |option| %>
-  <%= render 'option_sets/normal_option', option: OptionManager.new(option), form_builder: f %>
+<% OptionConfig.normal_options.map do |name| %>
+  <%= render 'option_sets/normal_option', option: OptionManager.find(name), form_builder: f %>
 <% end %>
 <%= render 'option_sets/options/leader', f: f %>
 <%= render 'option_sets/options/backspace', f: f %>
