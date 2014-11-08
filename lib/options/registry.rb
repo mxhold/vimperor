@@ -9,7 +9,7 @@ module Options
 
     def register(item_name, item)
       if registered?(item_name)
-        raise ArgumentError, "#{name} already registered: #{item_name}"
+        fail ArgumentError, "#{name} already registered: #{item_name}"
       else
         @items.store(item_name, item)
       end
@@ -19,7 +19,7 @@ module Options
       if registered?(item_name)
         @items.fetch(item_name)
       else
-        raise ArgumentError, "#{name} not registered: #{item_name}"
+        fail ArgumentError, "#{name} not registered: #{item_name}"
       end
     end
 
