@@ -42,19 +42,21 @@ describe 'compatible option' do
 <div class="radio">
 <label for="test_model_compatible_true">
 <input
- id="test_model_compatible_true"
- name="test_model[compatible]"
  type="radio"
- value="true" />
+ value="true"
+ name="test_model[compatible]"
+ id="test_model_compatible_true"
+ />
 On
 </label>
 <div class="radio">
 <label for="test_model_compatible_false">
 <input
- id="test_model_compatible_false"
- name="test_model[compatible]"
  type="radio"
- value="false" />
+ value="false"
+ name="test_model[compatible]"
+ id="test_model_compatible_false"
+ />
 Off
 </label>
 </div>
