@@ -29,7 +29,7 @@ describe OptionConfig do
   end
 
   describe '.options' do
-    it 'returns an array of every option field that appears in the option form' do
+    it 'returns an array of every option field in the option form' do
       expected_array = [
         :compatible,
         :leader,
@@ -93,13 +93,15 @@ describe OptionConfig do
     }
   end
   describe '#attributes' do
-    it 'returns a hash of OptionSet attributes delegating to variables from the options array' do
-      option_form = double(
-        'option_form,',
-        flat_attributes_hash
-      )
-      subject = described_class.new(option_form)
-      expect(subject.attributes).to eql attributes_hash
+    context 'called on instance with option attr_readers' do
+      it 'returns a hash of OptionSet attributes' do
+        option_form = double(
+          'option_form,',
+          flat_attributes_hash
+        )
+        subject = described_class.new(option_form)
+        expect(subject.attributes).to eql attributes_hash
+      end
     end
   end
 
