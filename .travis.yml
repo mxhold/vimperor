@@ -1,8 +1,6 @@
 language: ruby
 rvm:
-  - 2.1.2
-before_install:
-  - echo "2.1.2" > .ruby-version
+  - 2.1.4
 bundler_args: --without development production test
 before_script:
   - cp config/database.yml.travis config/database.yml
