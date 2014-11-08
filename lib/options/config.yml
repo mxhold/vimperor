@@ -1,0 +1,7 @@
+options:
+  compatible:
+    label: Vi compatibility
+    doc_url: http://vimdoc.sourceforge.net/htmldoc/options.html#'compatible'
+    help_text: Adds backwards-compatibility with the Vi editor by turning off many Vim features
+    field_type: boolean
+    default_value: false

@@ -35,5 +35,7 @@ module Vimperor
 
     # Dump to SQL since we're using Postgres-specific column types (JSONB)
     config.active_record.schema_format = :sql
+
+    config.autoload_paths += ["#{config.root}/lib"]
   end
 end

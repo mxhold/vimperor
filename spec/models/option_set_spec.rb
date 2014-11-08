@@ -14,4 +14,12 @@ describe OptionSet do
       expect(described_class.new(id: id).to_param).to eql hashid
     end
   end
+
+  describe '#form_attributes' do
+    it 'passes its options to OptionConfig.form_attributes' do
+      options = { 'compatible' => true }
+      expect(OptionConfig).to receive(:form_attributes).with(options)
+      described_class.new(options: options).form_attributes
+    end
+  end
 end

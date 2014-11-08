@@ -7,17 +7,17 @@
   }) do %>
   <div class="checkbox">
     <%= f.label :backspace_indent do %>
-      <%= f.check_box :backspace_indent, checked: true %> Autoindent
+      <%= f.check_box :backspace_indent %> Autoindent
     <% end %>
   </div>
   <div class="checkbox">
     <%= f.label :backspace_eol do %>
-      <%= f.check_box :backspace_eol, checked: true %> Line breaks
+      <%= f.check_box :backspace_eol %> Line breaks
     <% end %>
   </div>
   <div class="checkbox">
     <%= f.label :backspace_start do %>
-      <%= f.check_box :backspace_start, checked: true %> Start of insert
+      <%= f.check_box :backspace_start %> Start of insert
     <% end %>
   </div>
 <% end %>

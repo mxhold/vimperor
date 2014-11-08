@@ -1,0 +1,14 @@
+<div class="option">
+  <h2 class="option-header control-label">
+    <%= option.label %>
+  </h2>
+  <a href="<%= option.doc_url %>" class="doc-link" target="_blank">
+    see documentation
+  </a>
+  <span class="help-block">
+    <%= option.help_text %>
+  </span>
+  <div class="choices">
+    <%= option.form_fields(form_builder) %>
+  </div>
+</div>
