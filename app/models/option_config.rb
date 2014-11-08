@@ -49,21 +49,21 @@ class OptionConfig < SimpleDelegator
 
   def self.default_attributes
     {
-        compatible: false,
-        leader: ' ',
-        backspace_indent: true,
-        backspace_eol: true,
-        backspace_start: true,
-        expandtab: true,
-        tab_width: 2,
-        list: true,
-        listchars_trail: '·',
-        listchars_tab_first: '»',
-        listchars_tab_rest: '·',
-        listchars_eol: '',
-        listchars_nbsp: '',
-        listchars_extends: '',
-        listchars_precedes: '',
+      compatible: false,
+      leader: ' ',
+      backspace_indent: true,
+      backspace_eol: true,
+      backspace_start: true,
+      expandtab: true,
+      tab_width: 2,
+      list: true,
+      listchars_trail: '·',
+      listchars_tab_first: '»',
+      listchars_tab_rest: '·',
+      listchars_eol: '',
+      listchars_nbsp: '',
+      listchars_extends: '',
+      listchars_precedes: '',
     }
   end
 
