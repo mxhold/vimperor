@@ -1,5 +1,7 @@
 require 'delegate'
+# rubocop:disable Metrics/ClassLength
 class OptionConfig < SimpleDelegator
+  # rubocop:disable Metrics/MethodLength
   def self.option_types
     {
       compatible: :boolean,
@@ -67,6 +69,7 @@ class OptionConfig < SimpleDelegator
     }
   end
 
+  # rubocop:disable Metrics/AbcSize
   def self.form_attributes(options)
     {
       compatible: options['compatible'],
@@ -86,6 +89,7 @@ class OptionConfig < SimpleDelegator
       listchars_precedes: options.fetch('list', {})['precedes'],
     }
   end
+  # rubocop:enable Metrics/AbcSize
 
   def attributes
     {
@@ -109,5 +113,6 @@ class OptionConfig < SimpleDelegator
       }
     }
   end
+  # rubocop:enable Metrics/MethodLength
 end
-
+# rubocop:enable Metrics/ClassLength
