@@ -25,3 +25,4 @@ Metrics/ParameterLists:
 Rails/Delegate:
   Exclude:
     - 'app/services/hashid.rb'
+    - 'lib/**/*'
