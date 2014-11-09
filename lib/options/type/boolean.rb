@@ -29,6 +29,14 @@ module Options
       end
       # rubocop:enable Metrics/AbcSize, Metrics/MethodLength
 
+      def render(value)
+        if value
+          "set #{field_name}"
+        else
+          "set no#{field_name}"
+        end
+      end
+
       private
 
       attr_reader :field_name, :default_value, :false_label, :true_label

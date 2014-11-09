@@ -65,4 +65,17 @@ eos
       expect(subject.form_fields(form_builder)).to eql expected_markup
     end
   end
+
+  describe '#render' do
+    context 'initialized with true' do
+      it 'returns set compatible' do
+        expect(subject.render(true)).to eql 'set compatible'
+      end
+    end
+    context 'initialized with false' do
+      it 'returns set nocompatible' do
+        expect(subject.render(false)).to eql 'set nocompatible'
+      end
+    end
+  end
 end

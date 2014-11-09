@@ -13,14 +13,18 @@ module Options
     # rubocop:enable Metrics/MethodLength, Metrics/ParameterLists, Metrics/LineLength
 
     def form_fields(form)
-      form_field_renderer.form_fields(form)
+      type.form_fields(form)
+    end
+
+    def render(value)
+      type.render(value)
     end
 
     private
 
     attr_reader :field_type, :default_value
 
-    def form_field_renderer
+    def type
       Type.new(field_type).new(
         field_name: name,
         default_value: default_value
