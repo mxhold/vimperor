@@ -9,8 +9,6 @@ See it live at [vimperor.herokuapp.com](http://vimperor.herokuapp.com/)
 
 # Development setup
 
-## Prerequisites
-
 To run Vimperor locally, you'll need git, Ruby 2.1.4, and PostgreSQL installed.
 
 1. Clone this repository:
