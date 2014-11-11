@@ -25,9 +25,9 @@ module Options
     attr_reader :field_type, :default_value
 
     def type
-      Type.new(field_type).new(
+      Type.new(
+        field_type: field_type,
         field_name: name,
-        default_value: default_value
       )
     end
   end

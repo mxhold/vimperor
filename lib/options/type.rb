@@ -1,10 +1,11 @@
 require_relative './type/boolean'
 module Options
   module Type
-    def self.new(name)
-      const_get(name.to_s.split('_').map(&:capitalize).join)
+    def self.new(field_type:, field_name:)
+      type_class = const_get(field_type.to_s.split('_').map(&:capitalize).join)
+      type_class.new(field_name: field_name)
     rescue
-      raise ArgumentError, "Unknown option type: #{name}"
+      raise ArgumentError, "Unknown option type: #{field_type}"
     end
   end
 end
