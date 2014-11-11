@@ -18,7 +18,7 @@ feature 'vimrc generation' do
   scenario 'User can generate vimrc with custom settings', js: true do
     visit '/'
 
-    choose('On')
+    choose('option_set_compatible_true')
     click_on('Generate')
 
     expect(page).to have_content('set compatible')
