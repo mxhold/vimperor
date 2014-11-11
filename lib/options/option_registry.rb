@@ -22,7 +22,6 @@ module Options
             label: attributes.fetch('label'),
             doc_url: attributes.fetch('doc_url'),
             help_text: attributes.fetch('help_text'),
-            default_value: attributes.fetch('default_value'),
             field_type: attributes.fetch('field_type'),
           )
           @registry.register(name, option)

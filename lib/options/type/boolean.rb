@@ -5,14 +5,11 @@ module Options
       include ActionView::Helpers::TagHelper
       include ActionView::Helpers::FormTagHelper
 
-      # rubocop:disable Metrics/ParameterLists, Metrics/LineLength
-      def initialize(field_name:, default_value:, true_label: 'On', false_label: 'Off')
+      def initialize(field_name:, true_label: 'On', false_label: 'Off')
         @field_name = field_name
-        @default_value = default_value
         @true_label = true_label
         @false_label = false_label
       end
-      # rubocop:enable Metrics/ParameterLists, Metrics/LineLength
 
       # rubocop:disable Metrics/AbcSize, Metrics/MethodLength
       def form_fields(form)
@@ -39,7 +36,7 @@ module Options
 
       private
 
-      attr_reader :field_name, :default_value, :false_label, :true_label
+      attr_reader :field_name, :false_label, :true_label
     end
   end
 end

@@ -1,16 +1,15 @@
 module Options
   class Option
     attr_reader :name, :label, :doc_url, :help_text
-    # rubocop:disable Metrics/MethodLength, Metrics/ParameterLists, Metrics/LineLength
-    def initialize(name:, label:, doc_url:, help_text:, field_type:, default_value:)
+    # rubocop:disable Metrics/MethodLength, Metrics/ParameterLists
+    def initialize(name:, label:, doc_url:, help_text:, field_type:)
       @name = name
       @label = label
       @doc_url = doc_url
       @help_text = help_text
       @field_type = field_type.to_sym
-      @default_value = default_value
     end
-    # rubocop:enable Metrics/MethodLength, Metrics/ParameterLists, Metrics/LineLength
+    # rubocop:enable Metrics/MethodLength, Metrics/ParameterLists
 
     def form_fields(form)
       type.form_fields(form)
