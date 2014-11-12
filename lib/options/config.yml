@@ -4,3 +4,8 @@ options:
     doc_url: http://vimdoc.sourceforge.net/htmldoc/options.html#'compatible'
     help_text: Adds backwards-compatibility with the Vi editor by turning off many Vim features
     field_type: boolean
+  expandtab:
+    label: Soft tabs
+    doc_url: http://vimdoc.sourceforge.net/htmldoc/options.html#'expandtab'
+    help_text: Insert spaces instead of tabs when you press the <Tab> key
+    field_type: boolean

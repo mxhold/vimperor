@@ -26,7 +26,10 @@ class OptionConfig < SimpleDelegator
   end
 
   def self.normal_options
-    [:compatible]
+    [
+      :compatible,
+      :expandtab
+    ]
   end
 
   def self.options
