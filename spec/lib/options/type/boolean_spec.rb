@@ -27,7 +27,7 @@ describe Options::Type::Boolean do
     let(:form_builder) do
       ActionView::Helpers::FormBuilder.new(
         :test_model,
-        nil,
+        double('test_model', foobar: true),
         ActionView::Base.new,
         {}
       )
@@ -39,6 +39,7 @@ describe Options::Type::Boolean do
 <input
  type="radio"
  value="true"
+ checked="checked"
  name="test_model[foobar]"
  id="test_model_foobar_true"
  />
