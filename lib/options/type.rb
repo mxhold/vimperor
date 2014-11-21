@@ -1,4 +1,4 @@
-require_relative './type/boolean'
+Dir["#{__dir__}/type/*.rb"].each { |file| require file }
 module Options
   module Type
     def self.new(field_type:, field_name:)
