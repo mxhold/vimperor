@@ -2,10 +2,17 @@ options:
   compatible:
     label: Vi compatibility
     doc_url: http://vimdoc.sourceforge.net/htmldoc/options.html#'compatible'
-    help_text: Adds backwards-compatibility with the Vi editor by turning off many Vim features
+    help_text: Adds backwards-compatibility with the Vi editor by turning off
+      many Vim features
     field_type: boolean
   expandtab:
     label: Soft tabs
     doc_url: http://vimdoc.sourceforge.net/htmldoc/options.html#'expandtab'
     help_text: Insert spaces instead of tabs when you press the <Tab> key
     field_type: boolean
+  mapleader:
+    label: Leader key
+    doc_url: http://vimdoc.sourceforge.net/htmldoc/map.html#mapleader
+    help_text: Sets a prefix that can be referred to in other mappings as
+      <Leader>
+    field_type: string

@@ -6,7 +6,7 @@ describe OptionConfig do
     it 'returns a hash with attribute names as keys and types as values' do
       expected_hash = {
         compatible: :boolean,
-        leader: :string,
+        mapleader: :string,
         backspace: {
           indent: :boolean,
           eol: :boolean,
@@ -32,7 +32,7 @@ describe OptionConfig do
     it 'returns an array of every option field in the option form' do
       expected_array = [
         :compatible,
-        :leader,
+        :mapleader,
         :backspace_indent,
         :backspace_eol,
         :backspace_start,
@@ -54,7 +54,7 @@ describe OptionConfig do
   let(:flat_attributes_hash) do
     {
       compatible: '1',
-      leader: '2',
+      mapleader: '2',
       backspace_indent: '3',
       backspace_eol: '4',
       backspace_start: '5',
@@ -73,7 +73,7 @@ describe OptionConfig do
   let(:attributes_hash) do
     {
       'compatible' => '1',
-      'leader' => '2',
+      'mapleader' => '2',
       'backspace' => {
         'indent' => '3',
         'eol' => '4',

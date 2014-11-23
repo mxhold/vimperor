@@ -51,6 +51,7 @@ describe Options::Option do
  />
 On
 </label>
+</div>
 <div class="radio">
 <label for="test_model_compatible_false">
 <input
@@ -61,7 +62,6 @@ On
  />
 Off
 </label>
-</div>
 </div>
       eos
       expect(subject.form_fields(form_builder)).to eql expected_markup

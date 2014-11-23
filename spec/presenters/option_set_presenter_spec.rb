@@ -1,8 +1,4 @@
-require 'spec_helper'
-require_relative '../../app/forms/option_set_form'
-require 'active_support/core_ext/hash/keys'
-require 'active_support/core_ext/module/delegation'
-require_relative '../../app/presenters/option_set_presenter'
+require 'rails_helper'
 
 describe OptionSetPresenter do
   describe '#render' do
@@ -12,7 +8,7 @@ describe OptionSetPresenter do
           'OptionSet',
           'options' => {
             'compatible' => 'false',
-            'leader' => ',',
+            'mapleader' => ',',
             'backspace' => {
               'indent' => '1',
               'eol' => '1',

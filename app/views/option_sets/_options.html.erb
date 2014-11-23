@@ -1,7 +1,6 @@
 <% OptionConfig.normal_options.map do |name| %>
   <%= render 'option_sets/normal_option', option: OptionManager.find(name), form_builder: f %>
 <% end %>
-<%= render 'option_sets/options/leader', f: f %>
 <%= render 'option_sets/options/backspace', f: f %>
 <%= render 'option_sets/options/tab_width', f: f %>
 <%= render 'option_sets/options/listchars', f: f %>

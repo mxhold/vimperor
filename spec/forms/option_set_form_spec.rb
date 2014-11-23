@@ -33,7 +33,7 @@ describe OptionSetForm do
     it 'creates an OptionSet with nested hash attributes' do
       form = described_class.new(
         compatible: 'true',
-        leader: ',',
+        mapleader: ',',
         backspace_indent: '1',
         backspace_eol: '0',
         backspace_start: '0',
@@ -52,7 +52,7 @@ describe OptionSetForm do
       expect(OptionSet).to receive(:create!).with(
         options: {
           'compatible' => 'true',
-          'leader' => ',',
+          'mapleader' => ',',
           'backspace' => {
             'indent' => '1',
             'eol' => '0',

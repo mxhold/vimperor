@@ -45,6 +45,7 @@ describe Options::Type::Boolean do
  />
 TRUE
 </label>
+</div>
 <div class="radio">
 <label for="test_model_foobar_false">
 <input
@@ -55,7 +56,6 @@ TRUE
  />
 FALSE
 </label>
-</div>
 </div>
       eos
       expect(subject.form_fields(form_builder)).to eql expected_markup

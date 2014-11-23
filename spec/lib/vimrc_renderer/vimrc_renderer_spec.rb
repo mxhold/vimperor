@@ -7,7 +7,7 @@ describe VimrcRenderer::VimrcRenderer do
       subject do
         described_class.new(
           compatible: true,
-          leader: ','
+          mapleader: ','
         )
       end
       it 'renders all the options with newlines between' do
@@ -17,7 +17,7 @@ describe VimrcRenderer::VimrcRenderer do
     context 'some options set' do
       subject do
         described_class.new(
-          leader: ','
+          mapleader: ','
         )
       end
       it 'renders only the provided options with newlines between' do
@@ -28,7 +28,7 @@ describe VimrcRenderer::VimrcRenderer do
       subject do
         described_class.new(
           compatible: nil,
-          leader: ','
+          mapleader: ','
         )
       end
       it 'renders only the non-nil options with newlines between' do

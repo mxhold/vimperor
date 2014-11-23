@@ -4,8 +4,8 @@ require_relative '../../../../lib/options'
 describe Options::Type::String do
   subject { described_class.new(field_name: :foobar) }
   describe '#render' do
-    it 'returns set <field_name>=<value>' do
-      expect(subject.render('myvalue')).to eql 'set foobar=myvalue'
+    it 'returns let <field_name>=<value>' do
+      expect(subject.render('myvalue')).to eql 'let foobar="myvalue"'
     end
   end
 
@@ -24,6 +24,8 @@ describe Options::Type::String do
     it 'builds the form fields on the provided form builder for the option' do
       expected_markup = <<-eos.gsub(/\n/, '')
 <input
+ class="form-control foobar"
+ data-action="selectContents"
  type="text"
  value="baz"
  name="test_model[foobar]"

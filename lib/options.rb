@@ -1,5 +1,6 @@
 require 'action_view'
 require 'yaml'
+require_relative 'options/form_helper'
 require_relative 'options/type'
 require_relative 'options/option'
 require_relative 'options/registry'

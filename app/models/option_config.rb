@@ -5,7 +5,7 @@ class OptionConfig < SimpleDelegator
   def self.option_types
     {
       compatible: :boolean,
-      leader: :string,
+      mapleader: :string,
       backspace: {
         indent: :boolean,
         eol: :boolean,
@@ -28,14 +28,15 @@ class OptionConfig < SimpleDelegator
   def self.normal_options
     [
       :compatible,
-      :expandtab
+      :expandtab,
+      :mapleader
     ]
   end
 
   def self.options
     [
       :compatible,
-      :leader,
+      :mapleader,
       :backspace_indent,
       :backspace_eol,
       :backspace_start,
@@ -55,7 +56,7 @@ class OptionConfig < SimpleDelegator
   def self.default_attributes
     {
       compatible: false,
-      leader: ' ',
+      mapleader: ' ',
       backspace_indent: true,
       backspace_eol: true,
       backspace_start: true,
@@ -76,7 +77,7 @@ class OptionConfig < SimpleDelegator
   def self.form_attributes(options)
     {
       compatible: options['compatible'],
-      leader: options['leader'],
+      mapleader: options['mapleader'],
       backspace_indent: options.fetch('backspace', {})['indent'],
       backspace_eol: options.fetch('backspace', {})['eol'],
       backspace_start: options.fetch('backspace', {})['start'],
@@ -97,7 +98,7 @@ class OptionConfig < SimpleDelegator
   def attributes
     {
       'compatible' => compatible,
-      'leader' => leader,
+      'mapleader' => mapleader,
       'backspace' => {
         'indent' => backspace_indent,
         'eol' => backspace_eol,
